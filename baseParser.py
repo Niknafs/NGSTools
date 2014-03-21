@@ -35,10 +35,10 @@ class parseString(object):
                     self.types[self.ref] += 1
                     self.string = self.string[1:]
                 elif self.string[1] == '+': 
-                    insersionLength = int(self.string[2])
-                    insersionSeq = self.string[3:3+ insersionLength]
-                    self.types['+'].append(insersionSeq)
-                    self.string = self.string[3+insersionLength:]
+                    insertionLength = int(self.string[2])
+                    insertionSeq = self.string[3:3+ insertionLength]
+                    self.types['+'].append(insertionSeq)
+                    self.string = self.string[3+insertionLength:]
                 elif self.string[1] == '-':
                     deletionLength = int(self.string[2])
                     deletionSeq = self.string[3:3+deletionLength]
@@ -52,7 +52,7 @@ class parseString(object):
                 self.string = self.string[1:]
             else:
                 # unrecognized character
-                # or a read that reports a substitition followed by an insersion/deletion
+                # or a read that reports a substitition followed by an insertion/deletion
                 self.types['X'].append(self.string[0])
                 self.string = self.string[1:]
         return
